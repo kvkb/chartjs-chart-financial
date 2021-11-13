@@ -12,7 +12,7 @@
 typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('chart.js'), require('chart.js/helpers')) :
 typeof define === 'function' && define.amd ? define(['chart.js', 'chart.js/helpers'], factory) :
 (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.Chart, global.Chart.helpers));
-}(this, (function (chart_js, helpers) { 'use strict';
+})(this, (function (chart_js, helpers) { 'use strict';
 
 /**
  * Computes the "optimal" sample size to maintain bars equally sized while preventing overlap.
@@ -243,7 +243,7 @@ FinancialController.overrides = {
 
 					const {o, h, l, c} = point;
 
-					return `Low: ${o}  Against Value: ${h}  High: ${c}`;
+					return `O: ${o}  H: ${h}  L: ${l}  C: ${c}`;
 				}
 			}
 		}
@@ -341,55 +341,45 @@ class FinancialElement extends chart_js.Element {
 const globalOpts$1 = chart_js.Chart.defaults;
 
 class CandlestickElement extends FinancialElement {
-
 	draw(ctx) {
 		const me = this;
 
 		const {x, open, high, low, close} = me;
 
-		let borderColors = me.borderColor;
-		if (typeof borderColors === 'string') {
-			borderColors = {
-				up: borderColors,
-				down: borderColors,
-				unchanged: borderColors
-			};
-		}
-    
+		me.borderColor;
+
+		// let borderColor;
 		// if (close < open) {
-		// 	borderColor = helpers.valueOrDefault(borderColors ? borderColors.up : undefined, globalOpts$1.elements.candlestick.borderColor);
-    //   ctx.fillStyle = 'rgb(105, 108, 255, 0.4)';
-    //   // helpers.valueOrDefault(me.color ? me.color.up : undefined, globalOpts$1.elements.candlestick.color.up);
+		// 	borderColor = valueOrDefault(borderColors ? borderColors.up : undefined, globalOpts.elements.candlestick.borderColor);
+		// 	ctx.fillStyle = valueOrDefault(me.color ? me.color.up : undefined, globalOpts.elements.candlestick.color.up);
 		// } else if (close > open) {
-		// 	borderColor = helpers.valueOrDefault(borderColors ? borderColors.down : undefined, globalOpts$1.elements.candlestick.borderColor);
-    //   ctx.fillStyle = 'rgb(105, 108, 255, 0.4)';
-    //   // helpers.valueOrDefault(me.color ? me.color.down : undefined, globalOpts$1.elements.candlestick.color.down);
+		// 	borderColor = valueOrDefault(borderColors ? borderColors.down : undefined, globalOpts.elements.candlestick.borderColor);
+		// 	ctx.fillStyle = valueOrDefault(me.color ? me.color.down : undefined, globalOpts.elements.candlestick.color.down);
 		// } else {
-		// 	borderColor = helpers.valueOrDefault(borderColors ? borderColors.unchanged : undefined, globalOpts$1.elements.candlestick.borderColor);
-    //   ctx.fillStyle = 'rgb(105, 108, 255, 0.4)';
-    //   // helpers.valueOrDefault(me.color ? me.color.unchanged : undefined, globalOpts$1.elements.candlestick.color.unchanged);
+		// 	borderColor = valueOrDefault(borderColors ? borderColors.unchanged : undefined, globalOpts.elements.candlestick.borderColor);
+		// 	ctx.fillStyle = valueOrDefault(me.color ? me.color.unchanged : undefined, globalOpts.elements.candlestick.color.unchanged);
 		// }
 
-    ctx.lineWidth = 2;
+		ctx.lineWidth = 2;
     // helpers.valueOrDefault(me.borderWidth, globalOpts$1.elements.candlestick.borderWidth);
     ctx.strokeStyle = '#696CFF';
     // helpers.valueOrDefault(borderColor, globalOpts$1.elements.candlestick.borderColor);
 
     // console.log({x, open, high, low, close}, low-high);
-    var height = me.high > me.close ? low-high : me.close;
+    me.high > me.close ? low-high : me.close;
     ctx.fillStyle = 'rgb(105, 108, 255, 0.4)';
     ctx.fillRect(x - me.width / 2, high, 50, low-high);
     
-		// ctx.beginPath();
-		// ctx.moveTo(x, high);
-		// ctx.lineTo(x, Math.min(open, close));
-		// ctx.moveTo(x, low);
-		// ctx.lineTo(x, Math.max(open, close));
+    // ctx.beginPath();
+    // ctx.moveTo(x, high);
+    // ctx.lineTo(x, Math.min(open, close));
+    // ctx.moveTo(x, low);
+    // ctx.lineTo(x, Math.max(open, close));
     // ctx.stroke();
     ctx.fillStyle = '#fff';
-		ctx.fillRect((x - me.width / 2) + 17, close, me.width, open - close);
-		ctx.strokeRect((x - me.width / 2) + 17, close, me.width, open - close);
-		// ctx.closePath();
+    ctx.fillRect((x - me.width / 2) + 17, close, me.width, open - close);
+    ctx.strokeRect((x - me.width / 2) + 17, close, me.width, open - close);
+    // ctx.closePath();
 	}
 }
 
@@ -507,7 +497,7 @@ class OhlcController extends FinancialController {
 				lineWidth: dataset.lineWidth,
 				armLength: dataset.armLength,
 				armLengthRatio: dataset.armLengthRatio,
-        color: dataset.color,
+				color: dataset.color,
 			};
 
 			if (includeOptions) {
@@ -530,4 +520,4 @@ OhlcController.defaults = helpers.merge({
 
 chart_js.Chart.register(CandlestickController, OhlcController, CandlestickElement, OhlcElement);
 
-})));
+}));

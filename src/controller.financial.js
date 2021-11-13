@@ -123,7 +123,7 @@ export class FinancialController extends BarController {
 			base: reset ? base : low,
 			x: ipixels.center,
 			y: (low + high) / 2,
-			width: ipixels.size,
+			width: 15,// ipixels.size,
 			open,
 			high,
 			low,
@@ -177,7 +177,7 @@ FinancialController.overrides = {
 				maxRotation: 0,
 				autoSkip: true,
 				autoSkipPadding: 75,
-				sampleSize: 100
+				sampleSize: 10
 			},
 			afterBuildTicks: scale => {
 				const DateTime = window && window.luxon && window.luxon.DateTime;

@@ -21,30 +21,38 @@ export class CandlestickElement extends FinancialElement {
 			};
 		}
 
-		let borderColor;
-		if (close < open) {
-			borderColor = valueOrDefault(borderColors ? borderColors.up : undefined, globalOpts.elements.candlestick.borderColor);
-			ctx.fillStyle = valueOrDefault(me.color ? me.color.up : undefined, globalOpts.elements.candlestick.color.up);
-		} else if (close > open) {
-			borderColor = valueOrDefault(borderColors ? borderColors.down : undefined, globalOpts.elements.candlestick.borderColor);
-			ctx.fillStyle = valueOrDefault(me.color ? me.color.down : undefined, globalOpts.elements.candlestick.color.down);
-		} else {
-			borderColor = valueOrDefault(borderColors ? borderColors.unchanged : undefined, globalOpts.elements.candlestick.borderColor);
-			ctx.fillStyle = valueOrDefault(me.color ? me.color.unchanged : undefined, globalOpts.elements.candlestick.color.unchanged);
-		}
+		// let borderColor;
+		// if (close < open) {
+		// 	borderColor = valueOrDefault(borderColors ? borderColors.up : undefined, globalOpts.elements.candlestick.borderColor);
+		// 	ctx.fillStyle = valueOrDefault(me.color ? me.color.up : undefined, globalOpts.elements.candlestick.color.up);
+		// } else if (close > open) {
+		// 	borderColor = valueOrDefault(borderColors ? borderColors.down : undefined, globalOpts.elements.candlestick.borderColor);
+		// 	ctx.fillStyle = valueOrDefault(me.color ? me.color.down : undefined, globalOpts.elements.candlestick.color.down);
+		// } else {
+		// 	borderColor = valueOrDefault(borderColors ? borderColors.unchanged : undefined, globalOpts.elements.candlestick.borderColor);
+		// 	ctx.fillStyle = valueOrDefault(me.color ? me.color.unchanged : undefined, globalOpts.elements.candlestick.color.unchanged);
+		// }
 
-		ctx.lineWidth = valueOrDefault(me.borderWidth, globalOpts.elements.candlestick.borderWidth);
-		ctx.strokeStyle = valueOrDefault(borderColor, globalOpts.elements.candlestick.borderColor);
+		ctx.lineWidth = 2;
+    // helpers.valueOrDefault(me.borderWidth, globalOpts$1.elements.candlestick.borderWidth);
+    ctx.strokeStyle = '#696CFF';
+    // helpers.valueOrDefault(borderColor, globalOpts$1.elements.candlestick.borderColor);
 
-		ctx.beginPath();
-		ctx.moveTo(x, high);
-		ctx.lineTo(x, Math.min(open, close));
-		ctx.moveTo(x, low);
-		ctx.lineTo(x, Math.max(open, close));
-		ctx.stroke();
-		ctx.fillRect(x - me.width / 2, close, me.width, open - close);
-		ctx.strokeRect(x - me.width / 2, close, me.width, open - close);
-		ctx.closePath();
+    // console.log({x, open, high, low, close}, low-high);
+    var height = me.high > me.close ? low-high : me.close;
+    ctx.fillStyle = 'rgb(105, 108, 255, 0.4)';
+    ctx.fillRect(x - me.width / 2, high, 50, low-high);
+    
+    // ctx.beginPath();
+    // ctx.moveTo(x, high);
+    // ctx.lineTo(x, Math.min(open, close));
+    // ctx.moveTo(x, low);
+    // ctx.lineTo(x, Math.max(open, close));
+    // ctx.stroke();
+    ctx.fillStyle = '#fff';
+    ctx.fillRect((x - me.width / 2) + 17, close, me.width, open - close);
+    ctx.strokeRect((x - me.width / 2) + 17, close, me.width, open - close);
+    // ctx.closePath();
 	}
 }
 
