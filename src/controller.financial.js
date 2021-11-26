@@ -76,8 +76,8 @@ export class FinancialController extends BarController {
 		let max = Number.NEGATIVE_INFINITY;
 		for (let i = 0; i < _parsed.length; i++) {
 			const data = _parsed[i];
-			min = Math.min(min, data.l);
-			max = Math.max(max, data.h);
+			min = Math.min(min, data.o);
+			max = Math.max(max, data.c > data.h ? data.c : data.h);
 		}
 		return {min, max};
 	}
@@ -166,7 +166,7 @@ FinancialController.overrides = {
 
 	scales: {
 		x: {
-			type: 'timeseries',
+			type: 'linear',
 			offset: true,
 			ticks: {
 				major: {
@@ -180,37 +180,37 @@ FinancialController.overrides = {
 				sampleSize: 10
 			},
 			afterBuildTicks: scale => {
-				const DateTime = window && window.luxon && window.luxon.DateTime;
-				if (!DateTime) {
-					return;
-				}
-				const majorUnit = scale._majorUnit;
-				const ticks = scale.ticks;
-				const firstTick = ticks[0];
-				if (!firstTick) {
-					return;
-				}
+				// const DateTime = window && window.luxon && window.luxon.DateTime;
+				// if (!DateTime) {
+				// 	return;
+				// }
+				// const majorUnit = scale._majorUnit;
+				// const ticks = scale.ticks;
+				// const firstTick = ticks[0];
+				// if (!firstTick) {
+				// 	return;
+				// }
 
-				let val = DateTime.fromMillis(firstTick.value);
-				if ((majorUnit === 'minute' && val.second === 0)
-						|| (majorUnit === 'hour' && val.minute === 0)
-						|| (majorUnit === 'day' && val.hour === 9)
-						|| (majorUnit === 'month' && val.day <= 3 && val.weekday === 1)
-						|| (majorUnit === 'year' && val.month === 1)) {
-					firstTick.major = true;
-				} else {
-					firstTick.major = false;
-				}
-				let lastMajor = val.get(majorUnit);
+				// let val = DateTime.fromMillis(firstTick.value);
+				// if ((majorUnit === 'minute' && val.second === 0)
+				// 		|| (majorUnit === 'hour' && val.minute === 0)
+				// 		|| (majorUnit === 'day' && val.hour === 9)
+				// 		|| (majorUnit === 'month' && val.day <= 3 && val.weekday === 1)
+				// 		|| (majorUnit === 'year' && val.month === 1)) {
+				// 	firstTick.major = true;
+				// } else {
+				// 	firstTick.major = false;
+				// }
+				// let lastMajor = val.get(majorUnit);
 
-				for (let i = 1; i < ticks.length; i++) {
-					const tick = ticks[i];
-					val = DateTime.fromMillis(tick.value);
-					const currMajor = val.get(majorUnit);
-					tick.major = currMajor !== lastMajor;
-					lastMajor = currMajor;
-				}
-				scale.ticks = ticks;
+				// for (let i = 1; i < ticks.length; i++) {
+				// 	const tick = ticks[i];
+				// 	val = DateTime.fromMillis(tick.value);
+				// 	const currMajor = val.get(majorUnit);
+				// 	tick.major = currMajor !== lastMajor;
+				// 	lastMajor = currMajor;
+				// }
+				// scale.ticks = ticks;
 			}
 		},
 		y: {

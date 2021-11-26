@@ -1,77 +1,77 @@
 {
   "title": "High and Low",
   "data": [
-    {
-      "daypart": "PRIME AA",
-      "network": "AEN",
-      "quarter": "Quarter: 4Q2020",
-      "releaseWeek": "2020-11-09T00:00:00",
-      "high": 270,
-      "low": 210,
-      "demoCode": "P25-54",
-      "budget": 282,
-      "lastYear": 424,
-      "actEst": 112
-    },
-    {
-      "daypart": "PRIME AA",
-      "network": "HIST",
-      "quarter": "Quarter: 4Q2020",
-      "releaseWeek": "2020-11-09T00:00:00",
-      "high": 257,
-      "low": 230,
-      "demoCode": "P25-54",
-      "budget": 251,
-      "lastYear": 296,
-      "actEst": 112
-    },
-    {
-      "daypart": "PRIME AA",
-      "network": "LIFE",
-      "quarter": "Quarter: 4Q2020",
-      "releaseWeek": "2020-11-09T00:00:00",
-      "high": 137,
-      "low": 119,
-      "demoCode": "F25-54",
-      "budget": 137,
-      "lastYear": 138,
-      "actEst": 112
-    },
-    {
-      "daypart": "PRIME AA",
-      "network": "LMN",
-      "quarter": "Quarter: 4Q2020",
-      "releaseWeek": "2020-11-09T00:00:00",
-      "high": 62,
-      "low": 53,
-      "demoCode": "F25-54",
-      "budget": 58,
-      "lastYear": 72,
-      "actEst": 112
-    },
-    {
-      "daypart": "PRIME AA",
-      "network": "FYI",
-      "quarter": "Quarter: 4Q2020",
-      "releaseWeek": "2020-11-09T00:00:00",
-      "high": 33,
-      "low": 20,
-      "demoCode": "P25-54",
-      "budget": 19,
-      "lastYear": 29,
-      "actEst": 112
-    },
-    {
-      "daypart": "PRIME AA",
-      "network": "VICE",
-      "quarter": "Quarter: 4Q2020",
-      "releaseWeek": "2020-11-09T00:00:00",
-      "high": 33,
-      "low": 24,
-      "demoCode": "P18-49",
-      "budget": 28,
-      "lastYear": 30,
-      "actEst": 112
-    }
+      {
+          "daypart": "PRIME GAA",
+          "network": "AEN",
+          "quarter": "Quarter: 1Q2021",
+          "releaseWeek": "2021-01-04T00:00:00",
+          "high": 366,
+          "low": 340,
+          "demoCode": "P25-54",
+          "budget": 100,
+          "lastYear": 690,
+          "actEst": 144
+      },
+      {
+          "daypart": "PRIME GAA",
+          "network": "HIST",
+          "quarter": "Quarter: 1Q2021",
+          "releaseWeek": "2021-01-04T00:00:00",
+          "high": 387,
+          "low": 369,
+          "demoCode": "P25-54",
+          "budget": 100,
+          "lastYear": 438,
+          "actEst": 144
+      },
+      {
+          "daypart": "PRIME GAA",
+          "network": "LIFE",
+          "quarter": "Quarter: 1Q2021",
+          "releaseWeek": "2021-01-04T00:00:00",
+          "high": 190,
+          "low": 172,
+          "demoCode": "F25-54",
+          "budget": 100,
+          "lastYear": 193,
+          "actEst": 144
+      },
+      {
+          "daypart": "PRIME GAA",
+          "network": "LMN",
+          "quarter": "Quarter: 1Q2021",
+          "releaseWeek": "2021-01-04T00:00:00",
+          "high": 87,
+          "low": 70,
+          "demoCode": "F25-54",
+          "budget": 100,
+          "lastYear": 110,
+          "actEst": 144
+      },
+      {
+          "daypart": "PRIME GAA",
+          "network": "FYI",
+          "quarter": "Quarter: 1Q2021",
+          "releaseWeek": "2021-01-04T00:00:00",
+          "high": 50,
+          "low": 40,
+          "demoCode": "P25-54",
+          "budget": 100,
+          "lastYear": 52,
+          "actEst": 144
+      },
+      {
+          "daypart": "PRIME GAA",
+          "network": "VICE",
+          "quarter": "Quarter: 1Q2021",
+          "releaseWeek": "2021-01-04T00:00:00",
+          "high": 29,
+          "low": 13,
+          "demoCode": "P18-49",
+          "budget": 100,
+          "lastYear": 25,
+          "actEst": 144
+      }
   ]
 }
